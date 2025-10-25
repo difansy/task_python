@@ -101,7 +101,7 @@ print("Аспирант 2")
 aspirant2.show_info()
 aspirant2.show_scholarship()
 
-print("Сравнение степендий")
+print("Сравнение стипендий")
 
 print("Студент 1 vs Студент 2:")
 student1.compare_scholarship(student2)
