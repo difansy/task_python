@@ -1,10 +1,6 @@
 def filter_strings(lambda_func, strings):
     """Фильтрует массив строк по заданному условию."""
-    result = []
-    for string in strings:
-        if lambda_func(string):
-            result.append(string)
-    return result
+    return list(filter(lambda_func, strings))
 
 test_strings = ['laptop', 'cookie', 'milk', 'cookie with milk', 'airplane', 'Apple Jack']
 
