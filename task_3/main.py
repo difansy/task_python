@@ -5,11 +5,11 @@ class Figure:
 
     def get_area(self):
         """Вычисляет площадь фигуры."""
-        pass
+        raise NotImplementedError("Subclasses must implement get_area()")
 
     def get_perimeter(self):
         """Вычисляет периметр фигуры."""
-        pass
+        raise NotImplementedError("Subclasses must implement get_perimeter()")
 
     def compare_area(self, other):
         """Сравнивает площадь с другой фигурой."""
