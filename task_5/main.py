@@ -25,18 +25,35 @@ def sum_numbers(a, b):
 @func_time
 def sum_from_file():
     """Читает два числа из файла input.txt, вычисляет их сумму и записывает результат в output.txt."""
-    with open('input.txt', 'r') as file:
-        content = file.read().strip()
-        numbers = content.split()
-        a = float(numbers[0])
-        b = float(numbers[1])
+    try:
+        with open('input.txt', 'r') as file:
+            content = file.read().strip()
+            numbers = content.split()
+            if len(numbers) < 2:
+                print("Ошибка: файл input.txt должен содержать как минимум два числа.")
+                return None
+            try:
+                a = float(numbers[0])
+                b = float(numbers[1])
+            except ValueError:
+                print("Ошибка: файл input.txt должен содержать два корректных числа.")
+                return None
+    except FileNotFoundError:
+        print("Ошибка: файл input.txt не найден.")
+        return None
+    except Exception as e:
+        print(f"Ошибка при чтении файла input.txt: {e}")
+        return None
 
     result = a + b
 
-    with open('output.txt', 'w') as file:
-        file.write(f"Сумма {a} + {b} = {result}\n")
-
-    print(f"Результат записан в файл output.txt: {result}")
+    try:
+        with open('output.txt', 'w') as file:
+            file.write(f"Сумма {a} + {b} = {result}\n")
+        print(f"Результат записан в файл output.txt: {result}")
+    except Exception as e:
+        print(f"Ошибка при записи в файл output.txt: {e}")
+        return None
     return result
 
 
