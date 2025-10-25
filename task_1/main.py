@@ -1,10 +1,10 @@
 def check_palindrome(t: str) -> bool:
     """Проверяет, является ли строка палиндромом."""
-    text = ""
+    chars = []
     for char in t:
         if char.isalpha() or char.isdigit():
-            text += char.lower()
-
+            chars.append(char.lower())
+    text = ''.join(chars)
     return text == text[::-1]
 
 print(check_palindrome("заказ"))
