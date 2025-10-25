@@ -1,6 +1,9 @@
 class Student:
     """Класс для студента."""
-
+    VALUE_SCHOLARSHIP_STUDENT_BASE = 4000
+    VALUE_SCHOLARSHIP_STUDENT_EXL = 6000
+    VALUE_SCHOLARSHIP_ASPIRANT_BASE = 6000
+    VALUE_SCHOLARSHIP_ASPIRANT_EXL = 8000
     def __init__(self, full_name, age, group_number, average_grade):
         self.full_name = full_name
         self.age = age
@@ -17,9 +20,9 @@ class Student:
     def get_scholarship(self):
         """Вычисляет размер стипендии студента."""
         if self.average_grade == 5:
-            return 6000
+            return self.VALUE_SCHOLARSHIP_STUDENT_EXL
         elif self.average_grade < 5:
-            return 4000
+            return self.VALUE_SCHOLARSHIP_STUDENT_BASE
         else:
             return 0
 
@@ -57,9 +60,9 @@ class Aspirant(Student):
     def get_scholarship(self):
         """Вычисляет размер стипендии аспиранта."""
         if self.average_grade == 5:
-            return 8000
+            return self.VALUE_SCHOLARSHIP_ASPIRANT_EXL
         elif self.average_grade < 5:
-            return 6000
+            return self.VALUE_SCHOLARSHIP_ASPIRANT_BASE
         else:
             return 0
 
@@ -73,7 +76,7 @@ aspirant1 = Aspirant(
     25,
     "5132704/40802",
     4.3,
-    "Влияние котов на психологическое состояние людей"
+    "Влияние пения птиц на психологическое состояние людей"
 )
 aspirant2 = Aspirant(
     "Фошкин Павел Дмитриевич",
